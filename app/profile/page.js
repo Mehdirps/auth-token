@@ -26,7 +26,7 @@ export default function ProfilePage() {
                 });
 
                 // 6. Si la réponse n'est pas bonne, a un status 401, que "isRefreshing" est "false" et qu'on a bien un "refreshToken"
-                if (!response.ok && !isRefreshing && refreshToken) {
+                if (!response.ok && response.status === 403 && !isRefreshing && refreshToken) {
                     // 7. Passer isRefreshing à "true"
                     setIsRefreshing(true);
 
